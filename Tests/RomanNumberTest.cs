@@ -201,7 +201,7 @@ namespace Tests
             {
                 Assert.AreEqual(
                     testCase.Value, 
-                    RomanNumber.DigitValue(testCase.Key), 
+                    RomanNumberParser.DigitValue(testCase.Key), 
                     $"{testCase.Key} => {testCase.Value}"
                 );
             }
@@ -211,7 +211,7 @@ namespace Tests
             foreach (var testCase in excCases)
             {
                 var ex = Assert.ThrowsException<ArgumentException>(
-                    () => RomanNumber.DigitValue(testCase),
+                    () => RomanNumberParser.DigitValue(testCase),
                     $"DigitValue('{testCase}') must throw ArgumentException"
                 );
                 Assert.IsTrue(
@@ -221,7 +221,7 @@ namespace Tests
                 );
                 Assert.IsTrue(
                     ex.Message.Contains($"{nameof(RomanNumber)}") &&
-                    ex.Message.Contains($"{nameof(RomanNumber.DigitValue)}"),
+                    ex.Message.Contains($"DigitValue"),
                     "DigitValue ex.Message should contain name of class & name of method:" +
                     $" symbol: '{testCase}', ex.Message: '{ex.Message}'"
                 );
