@@ -28,7 +28,7 @@ namespace Tests
             {
                 Assert.AreEqual(
                     testCase.Value,
-                    RomanNumberValidator.DigitValue(testCase.Key),
+                    RomanNumberParser.DigitValue(testCase.Key),
                     $"{testCase.Key} => {testCase.Value}"
                 );
             }
@@ -38,7 +38,7 @@ namespace Tests
             foreach (var testCase in excCases)
             {
                 var ex = Assert.ThrowsException<ArgumentException>(
-                    () => RomanNumberValidator.DigitValue(testCase),
+                    () => RomanNumberParser.DigitValue(testCase),
                     $"DigitValue('{testCase}') must throw ArgumentException"
                 );
                 Assert.IsTrue(
